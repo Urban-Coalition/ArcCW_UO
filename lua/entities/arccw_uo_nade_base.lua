@@ -22,7 +22,7 @@ ENT.ExplosionEffect = true
 ENT.Scorch = true
 ENT.ImpactFuse = false
 
-ENT.GrenadeDir = Vector(0,0,-500)
+ENT.GrenadeDir = Vector(0,0,-1)
 
 if SERVER then
     function ENT:Initialize()
@@ -79,7 +79,7 @@ function ENT:Detonate()
             Attacker = attacker,
             Damage = 0,
             Tracer = 0,
-            Distance = 20000,
+            Distance = 5,
             Dir = self.GrenadeDir or self:GetVelocity():GetNormalized(),
             Src = self:GetPos(),
             Callback = function(att, tr, dmg)
