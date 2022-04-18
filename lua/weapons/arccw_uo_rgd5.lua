@@ -7,7 +7,7 @@ SWEP.AdminOnly = false
 SWEP.PrintName = "Frag Grenade"
 SWEP.TrueName = "RGD-5"
 SWEP.Trivia_Class = "Fragmentation Grenade"
-SWEP.Trivia_Desc = [[Cold War era, TNT-based anti-personnel grenade. Saturates its surroundings with shrapnel with a short fuse and a narrow lethal radius.
+SWEP.Trivia_Desc = [[Cheap Cold War era, TNT-based anti-personnel grenade. Saturates its surroundings with shrapnel with a short fuse and a narrow lethal radius.
 
 Can be cooked with the "COOK" firemode, allowing the user to start the fuse early for a reduced time to detonation.]]
 SWEP.Trivia_Calibre = "N/A"
