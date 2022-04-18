@@ -1,4 +1,4 @@
-ArcCW: Urban Ordnance
+ArcCW: Urban Ordnance (uoh :sob:)
 
 A pack of high quality grenades of all shapes, sizes, and utilities to complement the Urban Coalition arsenal.
 
