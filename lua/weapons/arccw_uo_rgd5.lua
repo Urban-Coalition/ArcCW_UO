@@ -20,14 +20,15 @@ if GetConVar("arccw_truenames"):GetBool() then
 end
 
 SWEP.Slot = 4
+SWEP.CamAttachment = 1
 
 SWEP.NotForNPCs = true
 
 SWEP.UseHands = true
 
-SWEP.ViewModel = "models/weapons/arccw/c_uc_common_rgd.mdl"
-SWEP.WorldModel = "models/weapons/arccw/c_uc_common_rgd.mdl"
-SWEP.ViewModelFOV = 60
+SWEP.ViewModel = "models/weapons/arccw/c_uo_rgd.mdl"
+SWEP.WorldModel = "models/weapons/arccw/c_uo_rgd.mdl"
+SWEP.ViewModelFOV = 65
 
 SWEP.Throwing = true
 SWEP.Singleton = false -- for grenades, means that weapons ARE ammo; hold one, use one.
@@ -67,11 +68,7 @@ SWEP.HoldtypeActive = "slam"
 SWEP.Primary.ClipSize = 1
 SWEP.Primary.Ammo = "grenade"
 
-SWEP.BashPreparePos = Vector(2.187, -7.117, -1)
-SWEP.BashPrepareAng = Angle(5, -3.652, -19.039)
-
-SWEP.BashPos = Vector(8.876, 0, 0)
-SWEP.BashAng = Angle(-16.524, 70, -11.046)
+SWEP.CanBash = false
 
 SWEP.HolsterPos = Vector(0.532, -1, 0)
 SWEP.HolsterAng = Angle(-10, 0, 0)
@@ -103,8 +100,8 @@ SWEP.Animations = {
     },
     ["pre_throw"] = {
         Source = "throw_start",
-        Time = .75,
-        MinProgress = .75,
+        -- Time = .75,
+        MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
             {s = path .. "pinpull.wav", t = 0.25},
@@ -112,8 +109,8 @@ SWEP.Animations = {
     },
     ["pre_throw_cook"] = {
         Source = "throw2_start",
-        Time = .85,
-        MinProgress = .85,
+        -- Time = .85,
+        MinProgress = .95,
         SoundTable = {
             {s = rottle, t = 0.05},
             {s = path .. "pinpull.wav", t = 0.25},
@@ -122,7 +119,7 @@ SWEP.Animations = {
     },
     ["pre_throw_hold"] = {
         Source = "throw_idle",
-        Time = 70 / 30,
+        -- Time = 70 / 30,
     },
     ["pre_throw_hold_cook"] = {
         Source = "throw2_idle",
@@ -130,7 +127,7 @@ SWEP.Animations = {
     },
     ["throw"] = {
         Source = "throw_end",
-        Time = .5,
+        -- Time = .5,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
@@ -139,7 +136,7 @@ SWEP.Animations = {
     },
     ["throw_cook"] = {
         Source = "throw_end",
-        Time = .5,
+        -- Time = .5,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15} -- temporary
