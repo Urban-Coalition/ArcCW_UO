@@ -55,7 +55,7 @@ SWEP.Firemodes = {
 SWEP.MuzzleVelocity = 1600
 SWEP.MuzzleVelocityAlt = 500 -- Throwing with alt-fire will use this velocity if exists
 
-SWEP.PullPinTime = .75
+SWEP.PullPinTime = .8
 SWEP.FuseTime = 3.4
 SWEP.CookPrimFire = false 
 SWEP.CookAltFire = false
@@ -114,7 +114,7 @@ SWEP.Animations = {
         SoundTable = {
             {s = rottle, t = 0.05},
             {s = path .. "pinpull.wav", t = 0.25},
-            {s = path .. "spooneject.wav", t = 0.55},
+            {s = path .. "spooneject.wav", t = 0.8},
         }
     },
     ["pre_throw_hold"] = {
