@@ -62,7 +62,7 @@ SWEP.CookAltFire = false
 SWEP.ChamberSize = 0
 
 SWEP.HoldtypeHolstered = "normal"
-SWEP.HoldtypeActive = "grenade"
+SWEP.HoldtypeActive = "slam"
 
 SWEP.Primary.ClipSize = 1
 SWEP.Primary.Ammo = "grenade"
