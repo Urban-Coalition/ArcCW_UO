@@ -4,16 +4,16 @@ SWEP.Spawnable = true -- this obviously has to be set to true
 SWEP.Category = "ArcCW - Urban Coalition" -- edit this if you like
 SWEP.AdminOnly = false
 
-SWEP.PrintName = "Light Frag Grenade"
-SWEP.TrueName = "RGD-5"
+SWEP.PrintName = "Heavy Frag Grenade"
+SWEP.TrueName = "M67"
 SWEP.Trivia_Class = "Fragmentation Grenade"
-SWEP.Trivia_Desc = [[Cheap Cold War era, TNT-based anti-personnel grenade. Saturates its surroundings with shrapnel with a short fuse and a narrow lethal radius.
+SWEP.Trivia_Desc = [[The US Army's grenade of choice. Its baseball-shaped form is designed to aid conventional throwing. A bit heavy and slow to detonate, but has very potent fragmentation.
 
 Can be cooked with the "COOK" firemode, allowing the user to start the fuse early for a reduced time to detonation.]]
-SWEP.Trivia_Calibre = "Trinitrotoluene"
+SWEP.Trivia_Calibre = "Composition B"
 SWEP.Trivia_Mechanism = "Pyrotechnic Delay Fuse"
-SWEP.Trivia_Country = "Soviet Union"
-SWEP.Trivia_Year = 1954
+SWEP.Trivia_Country = "USA"
+SWEP.Trivia_Year = 1968
 
 if GetConVar("arccw_truenames"):GetBool() then
     SWEP.PrintName = SWEP.TrueName
@@ -33,7 +33,7 @@ SWEP.ViewModelFOV = 65
 SWEP.Throwing = true
 SWEP.Singleton = false -- for grenades, means that weapons ARE ammo; hold one, use one.
 
-SWEP.ShootEntity = "arccw_uo_nade_rgd5" -- See the entity's code for damage info
+SWEP.ShootEntity = "arccw_uo_nade_m67" -- See the entity's code for damage info
 
 SWEP.NotForNPCs = true
 
@@ -52,11 +52,11 @@ SWEP.Firemodes = {
     },
 }
 
-SWEP.MuzzleVelocity = 1600
-SWEP.MuzzleVelocityAlt = 500 -- Throwing with alt-fire will use this velocity if exists
+SWEP.MuzzleVelocity = 1400
+SWEP.MuzzleVelocityAlt = 400 -- Throwing with alt-fire will use this velocity if exists
 
 SWEP.PullPinTime = .8
-SWEP.FuseTime = 3.4
+SWEP.FuseTime = 5
 SWEP.CookPrimFire = false 
 SWEP.CookAltFire = false
 
@@ -123,7 +123,7 @@ SWEP.Animations = {
     },
     ["pre_throw_hold_cook"] = {
         Source = "throw2_idle",
-        Time = 2.6,
+        Time = 4.2,
     },
     ["throw"] = {
         Source = "throw_end",
