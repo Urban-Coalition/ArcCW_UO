@@ -22,6 +22,11 @@ ENT.ExplosionEffect = true
 ENT.Scorch = true
 ENT.ImpactFuse = false
 
+local path = "arccw_uo/frag/"
+local path1 = "arccw_uo/common/"
+ENT.ExplosionSounds = {path .. "explosion-close-01.ogg", path .. "explosion-close-02.ogg"}
+ENT.DebrisSounds = {path1 .. "debris-01.ogg", path1 .. "debris-02.ogg", path1 .. "debris-03.ogg", path1 .. "debris-04.ogg", path1 .. "debris-05.ogg"}
+
 ENT.GrenadeDir = Vector(0,0,-1)
 
 if SERVER then
@@ -36,9 +41,14 @@ if SERVER then
             phys:Wake()
             phys:SetDragCoefficient(self.DragCoefficient)
             phys:SetBuoyancyRatio(0.1)
+            phys:SetMass(.3)
         end
 
         self.SpawnTime = CurTime()
+
+        -- for _,ent in pairs(ents.FindByClass("func_breakable_surf")) do
+        --     constraint.NoCollide(self,ent,0,0)
+        -- end
     end
 
     function ENT:Think()
@@ -67,12 +77,19 @@ function ENT:Detonate()
             self:EmitSound("weapons/underwater_explode3.wav", 125, 100, 1, CHAN_AUTO)
         else
             util.Effect("Explosion", effectdata)
-            self:EmitSound("phx/kaboom.wav", 125, 100, 1, CHAN_AUTO)
+            self:EmitSound(self.ExplosionSounds[math.random(1,#self.ExplosionSounds)], 125, 100, 1, CHAN_AUTO)
+            --self:EmitSound("phx/kaboom.wav", 125, 100, 1, CHAN_AUTO) -- Temporary
         end
-        util.ScreenShake(self:GetPos(),25,5,.75,self.GrenadeRadius * 2)
+        util.ScreenShake(self:GetPos(),25,5,.75,self.GrenadeRadius * 3)
     end
 
     self:DoDetonation()
+
+    local trace = util.TraceLine({
+        start = self:GetPos(),
+        endpos = self:GetPos() + Vector(0,0,-5),
+        mask = MASK_SOLID_BRUSHONLY
+    })
 
     if self.Scorch then
         self:FireBullets({
@@ -88,6 +105,15 @@ function ENT:Detonate()
         })
     end
 
+    -- local debrisMats = {
+    --     [MAT_GRASS] = true,
+    --     [MAT_DIRT] = true,
+    --     [MAT_SAND] = true,
+    -- }
+    if self.DebrisSounds then
+        self:EmitSound(self.DebrisSounds[math.random(1,#self.DebrisSounds)], 85, 100, 1, CHAN_AUTO)
+    end
+
     self:Remove()
 end
 
@@ -95,6 +121,9 @@ function ENT:PhysicsCollide(data, physobj)
     if SERVER then
         if data.Speed > 75 then
             self:EmitSound(Sound("physics/metal/metal_grenade_impact_hard" .. math.random(1,3) .. ".wav"))
+            -- if data.HitEntity:GetClass() == "func_breakable_surf" then
+            --     data.HitEntity:Fire("Shatter")
+            -- end
         elseif data.Speed > 25 then
             self:EmitSound(Sound("physics/metal/metal_grenade_impact_soft" .. math.random(1,3) .. ".wav"))
         end

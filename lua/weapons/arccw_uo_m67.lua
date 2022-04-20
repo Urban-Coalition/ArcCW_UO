@@ -104,7 +104,7 @@ SWEP.Animations = {
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
-            {s = path .. "pinpull.wav", t = 0.25},
+            {s = path .. "pinpull.wav", t = 0.4},
         }
     },
     ["pre_throw_cook"] = {
@@ -113,7 +113,7 @@ SWEP.Animations = {
         MinProgress = .95,
         SoundTable = {
             {s = rottle, t = 0.05},
-            {s = path .. "pinpull.wav", t = 0.25},
+            {s = path .. "pinpull.wav", t = 0.4},
             {s = path .. "spooneject.wav", t = 0.8},
         }
     },
@@ -123,7 +123,7 @@ SWEP.Animations = {
     },
     ["pre_throw_hold_cook"] = {
         Source = "throw2_idle",
-        Time = 4.2,
+        Time = 2.6,
     },
     ["throw"] = {
         Source = "throw_end",
