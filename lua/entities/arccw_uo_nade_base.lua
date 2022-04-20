@@ -110,7 +110,7 @@ function ENT:Detonate()
     --     [MAT_DIRT] = true,
     --     [MAT_SAND] = true,
     -- }
-    if self.DebrisSounds then
+    if self.DebrisSounds and trace.Hit then
         self:EmitSound(self.DebrisSounds[math.random(1,#self.DebrisSounds)], 85, 100, 1, CHAN_AUTO)
     end
 
