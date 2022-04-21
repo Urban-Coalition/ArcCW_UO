@@ -81,7 +81,7 @@ function ENT:Detonate()
             self:EmitSound(self.ExplosionSounds[math.random(1,#self.ExplosionSounds)], 125, 100, 1, CHAN_AUTO)
             --self:EmitSound("phx/kaboom.wav", 125, 100, 1, CHAN_AUTO) -- Temporary
         end
-        util.ScreenShake(self:GetPos(),25,5,.75,self.GrenadeRadius * 3)
+        util.ScreenShake(self:GetPos(),25,4,.75,self.GrenadeRadius * 4)
     end
 
     self:DoDetonation()
