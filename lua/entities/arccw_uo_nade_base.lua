@@ -62,6 +62,19 @@ end
 function ENT:DoDetonation()
     local attacker = IsValid(self:GetOwner()) and self:GetOwner() or self
     util.BlastDamage(self, attacker, self:GetPos(), self.GrenadeRadius, self.GrenadeDamage or self.Damage or 0)
+
+    for _,ent in pairs(ents.FindByClass("prop_door_rotating")) do
+        if ent:GetPos():DistToSqr(self:GetPos()) <= math.pow(self.GrenadeRadius / 3.5,2) then
+            local trace = util.TraceLine({
+                start = self:GetPos() + Vector(0,0,15),
+                endpos = ent:LocalToWorld(Vector(0,25,0)),
+                filter = self
+            })
+            if trace.Entity == ent then
+                ArcCW.DoorBust(ent,(ent:GetPos() - self:GetPos()):GetNormalized() * 400)
+            end
+        end
+    end
 end
 
 function ENT:Detonate()
@@ -122,9 +135,6 @@ function ENT:PhysicsCollide(data, physobj)
     if SERVER then
         if data.Speed > 75 then
             self:EmitSound(Sound("physics/metal/metal_grenade_impact_hard" .. math.random(1,3) .. ".wav"))
-            -- if data.HitEntity:GetClass() == "func_breakable_surf" then
-            --     data.HitEntity:Fire("Shatter")
-            -- end
         elseif data.Speed > 25 then
             self:EmitSound(Sound("physics/metal/metal_grenade_impact_soft" .. math.random(1,3) .. ".wav"))
         end
