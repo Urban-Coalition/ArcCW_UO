@@ -56,6 +56,18 @@ if SERVER then
             self:Detonate()
         end
     end
+else
+    function ENT:Think()
+        if !self.Submerged and self:WaterLevel() > 0 then
+            self.Submerged = true
+    
+            local eff = EffectData()
+            eff:SetOrigin(self:GetPos())
+            util.Effect("watersplash",eff)
+        elseif self.Submerged and self:WaterLevel() == 0 then
+            self.Submerged = nil
+        end
+    end
 end
 
 -- overwrite to do special explosion things
