@@ -10,4 +10,4 @@ Weapons:
 * M84 Stun
 * M18 Smoke
 * Molotov
- 
+* Pipe Bomb (random fuse, big blast radius)
