@@ -162,6 +162,7 @@ SWEP.Animations = {
     },
     ["throw"] = {
         Source = "throw_end",
+        Time = 1,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
@@ -170,6 +171,7 @@ SWEP.Animations = {
     },
     ["throw_cook"] = {
         Source = "throw_end",
+        Time = 1,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15} -- temporary
@@ -177,6 +179,7 @@ SWEP.Animations = {
     },
     ["throw_alt"] = {
         Source = "lowthrow_end",
+        Time = 1,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
