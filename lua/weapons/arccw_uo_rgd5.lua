@@ -93,7 +93,7 @@ SWEP.Animations = {
         Source = "draw",
         SoundTable = {
             {s = rottle, t = 0},
-        }
+        },
     },
     ["idle"] = {
         Source = "idle",
@@ -102,7 +102,7 @@ SWEP.Animations = {
         Source = "ready",
         SoundTable = {
             {s = rottle, t = 0},
-        }
+        },
     },
     ["pre_throw"] = {
         Source = "throw_start",
@@ -111,7 +111,7 @@ SWEP.Animations = {
         SoundTable = {
             {s = rottle, t = 0.05},
             {s = path .. "pinpull.wav", t = 0.4},
-        }
+        },
     },
     ["pre_throw_cook"] = {
         Source = "throw2_start",
@@ -121,7 +121,25 @@ SWEP.Animations = {
             {s = rottle, t = 0.05},
             {s = path .. "pinpull.wav", t = 0.4},
             {s = path .. "spooneject.wav", t = 0.8},
-        }
+        },
+    },
+    ["pre_throw_alt"] = {
+        Source = "lowthrow_start",
+        -- Time = .75,
+        MinProgress = .8,
+        SoundTable = {
+            {s = rottle, t = 0.05},
+            {s = path .. "pinpull.wav", t = 0.4},
+        },
+    },
+    ["pre_throw_cook_alt"] = {
+        Source = "lowthrow2_start",
+        -- Time = .75,
+        MinProgress = .8,
+        SoundTable = {
+            {s = rottle, t = 0.05},
+            {s = path .. "pinpull.wav", t = 0.4},
+        },
     },
     ["pre_throw_hold"] = {
         Source = "throw_idle",
@@ -135,6 +153,10 @@ SWEP.Animations = {
         Source = "throw2_idle",
         Time = 2.6,
     },
+    ["pre_throw_hold_cook_alt"] = {
+        Source = "lowthrow2_idle",
+        -- Time = 70 / 30,
+    },
     ["throw"] = {
         Source = "throw_end",
         -- Time = .5,
@@ -142,7 +164,7 @@ SWEP.Animations = {
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
             {s = path .. "spooneject.wav", t = 0.2}, -- temporary
-        }
+        },
     },
     ["throw_cook"] = {
         Source = "throw_end",
@@ -150,7 +172,15 @@ SWEP.Animations = {
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15} -- temporary
-        }
+        },
+    },
+    ["throw_alt"] = {
+        Source = "lowthrow_end",
+        TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
+        SoundTable = {
+            {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
+            {s = path .. "spooneject.wav", t = 0.2}, -- temporary
+        },
     },
 }
 
