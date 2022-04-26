@@ -52,15 +52,17 @@ SWEP.Firemodes = {
     },
 }
 
-SWEP.MuzzleVelocity = 1600
-SWEP.MuzzleVelocityAlt = 500 -- Throwing with alt-fire will use this velocity if exists
+SWEP.MuzzleVelocity = 1500
+SWEP.MuzzleVelocityAlt = 600 -- Throwing with alt-fire will use this velocity if exists
 
 SWEP.PullPinTime = .8
 SWEP.FuseTime = 3.4
+
 SWEP.CookPrimFire = false
 SWEP.CookAltFire = false
 
-SWEP.ChamberSize = 0
+SWEP.WindupTime = 1.5 -- Time to reach max velocity (does not apply for altfire)
+SWEP.WindupMinimum = 0.25 -- Velocity fraction if released without windup
 
 SWEP.HoldtypeHolstered = "normal"
 SWEP.HoldtypeActive = "slam"
@@ -104,6 +106,9 @@ SWEP.Animations = {
             {s = rottle, t = 0},
         }
     },
+
+    -- Overhand
+
     ["pre_throw"] = {
         Source = "throw_start",
         -- Time = .75,
@@ -113,27 +118,9 @@ SWEP.Animations = {
             {s = path .. "pinpull.wav", t = 0.4},
         }
     },
-    ["pre_throw_cook"] = {
-        Source = "throw2_start",
-        -- Time = .85,
-        MinProgress = .95,
-        SoundTable = {
-            {s = rottle, t = 0.05},
-            {s = path .. "pinpull.wav", t = 0.4},
-            {s = path .. "spooneject.wav", t = 0.8},
-        }
-    },
     ["pre_throw_hold"] = {
         Source = "throw_idle",
         -- Time = 70 / 30,
-    },
-    ["pre_throw_hold_alt"] = {
-        Source = "lowthrow_idle",
-        -- Time = 70 / 30,
-    },
-    ["pre_throw_hold_cook"] = {
-        Source = "throw2_idle",
-        Time = 2.6,
     },
     ["throw"] = {
         Source = "throw_end",
@@ -144,6 +131,23 @@ SWEP.Animations = {
             {s = path .. "spooneject.wav", t = 0.2}, -- temporary
         }
     },
+
+    -- Overhand, cooked
+
+    ["pre_throw_cook"] = {
+        Source = "throw2_start",
+        -- Time = .85,
+        MinProgress = .95,
+        SoundTable = {
+            {s = rottle, t = 0.05},
+            {s = path .. "pinpull.wav", t = 0.4},
+            {s = path .. "spooneject.wav", t = 0.8},
+        },
+    },
+    ["pre_throw_hold_cook"] = {
+        Source = "throw2_idle",
+        Time = 2.6,
+    },
     ["throw_cook"] = {
         Source = "throw_end",
         -- Time = .5,
@@ -152,10 +156,61 @@ SWEP.Animations = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15} -- temporary
         }
     },
+
+    -- Underhand
+
+    ["pre_throw_alt"] = {
+        Source = "lowthrow_start",
+        -- Time = .75,
+        MinProgress = .8,
+        SoundTable = {
+            {s = rottle, t = 0.05},
+            {s = path .. "pinpull.wav", t = 0.4},
+        }
+    },
+    ["pre_throw_hold_alt"] = {
+        Source = "lowthrow_idle",
+        -- Time = 70 / 30,
+    },
+    ["throw_alt"] = {
+        Source = "lowthrow_end",
+        -- Time = .5,
+        TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
+        SoundTable = {
+            {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
+            {s = path .. "spooneject.wav", t = 0.2}, -- temporary
+        }
+    },
+
+    -- Underhand, cooked
+
+    ["pre_throw_alt_cook"] = {
+        Source = "lowthrow2_start",
+        -- Time = .75,
+        MinProgress = .8,
+        SoundTable = {
+            {s = rottle, t = 0.05},
+            {s = path .. "pinpull.wav", t = 0.4},
+            {s = path .. "spooneject.wav", t = 0.8},
+        },
+    },
+    ["pre_throw_hold_alt_cook"] = {
+        Source = "lowthrow2_idle",
+        MinProgress = .95,
+        -- Time = 70 / 30,
+    },
+    ["throw_alt_cook"] = {
+        Source = "lowthrow_end",
+        -- Time = .5,
+        TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
+        SoundTable = {
+            {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
+        }
+    },
 }
 
 SWEP.Hook_TranslateAnimation = function(wep, anim)
-    if (anim == "pre_throw" or anim == "pre_throw_hold" or anim == "throw") and wep:GetCurrentFiremode() == wep.Firemodes[2] then
+    if wep:GetCurrentFiremode() == wep.Firemodes[2] and wep.Animations[anim .. "_cook"] then
         return anim .. "_cook"
     end
 end
