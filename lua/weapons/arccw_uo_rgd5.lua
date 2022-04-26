@@ -91,12 +91,18 @@ local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "clo
 SWEP.Animations = {
     ["draw"] = {
         Source = "draw",
+        SoundTable = {
+            {s = rottle, t = 0},
+        }
     },
     ["idle"] = {
         Source = "idle",
     },
     ["ready"] = {
         Source = "ready",
+        SoundTable = {
+            {s = rottle, t = 0},
+        }
     },
     ["pre_throw"] = {
         Source = "throw_start",

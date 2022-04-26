@@ -1,7 +1,7 @@
 AddCSLuaFile()
 ENT.Type = "anim"
 ENT.Base = "base_entity"
-ENT.PrintName = "Base Rifle Grenade"
+ENT.PrintName = "Base Hand Grenade"
 ENT.Author = ""
 ENT.Information = ""
 ENT.Spawnable = false
@@ -26,6 +26,12 @@ local path = "arccw_uo/frag/"
 local path1 = "arccw_uo/common/"
 ENT.ExplosionSounds = {path .. "explosion-close-01.ogg", path .. "explosion-close-02.ogg"}
 ENT.DebrisSounds = {path1 .. "debris-01.ogg", path1 .. "debris-02.ogg", path1 .. "debris-03.ogg", path1 .. "debris-04.ogg", path1 .. "debris-05.ogg"}
+ENT.ExplosionParticle = "explosion_grenade_fas2"
+
+-- explosion_HE_m79_fas2
+-- explosion_he_grenade_fas2
+-- explosion_HE_claymore_fas2
+-- explosion_grenade_fas2
 
 ENT.GrenadeDir = Vector(0,0,-1)
 
@@ -103,13 +109,8 @@ function ENT:Detonate()
         else
             effectdata:SetFlags(4)
             -- util.Effect("Explosion", effectdata)
-            
-            -- explosion_HE_m79_fas2
-            -- explosion_he_grenade_fas2
-            -- explosion_HE_claymore_fas2
-            -- explosion_grenade_fas2
 
-            ParticleEffect("explosion_grenade_fas2", self:GetPos(), Angle(-90, 0, 0))
+            ParticleEffect(self.ExplosionParticle or "explosion_grenade_fas2", self:GetPos(), Angle(-90, 0, 0))
 
             self:EmitSound(self.ExplosionSounds[math.random(1,#self.ExplosionSounds)], 125, 100, 1, CHAN_AUTO)
             --self:EmitSound("phx/kaboom.wav", 125, 100, 1, CHAN_AUTO) -- Temporary
@@ -121,31 +122,33 @@ function ENT:Detonate()
 
     local trace = util.TraceLine({
         start = self:GetPos(),
-        endpos = self:GetPos() + Vector(0,0,-5),
+        endpos = self:GetPos() + Vector(0,0,-15),
         mask = MASK_SOLID_BRUSHONLY
     })
 
-    if self.Scorch then
-        self:FireBullets({
-            Attacker = attacker,
-            Damage = 0,
-            Tracer = 0,
-            Distance = 5,
-            Dir = self.GrenadeDir or self:GetVelocity():GetNormalized(),
-            Src = self:GetPos(),
-            Callback = function(att, tr, dmg)
-                util.Decal("Scorch", tr.StartPos, tr.HitPos - (tr.HitNormal * 16), self)
-            end
-        })
-    end
+    if trace.Hit then
+        if self.Scorch then
+            self:FireBullets({
+                Attacker = attacker,
+                Damage = 0,
+                Tracer = 0,
+                Distance = 15,
+                Dir = self.GrenadeDir or self:GetVelocity():GetNormalized(),
+                Src = self:GetPos(),
+                Callback = function(att, tr, dmg)
+                    util.Decal("Scorch", tr.StartPos, tr.HitPos - (tr.HitNormal * 16), self)
+                end
+            })
+        end
 
-    -- local debrisMats = {
-    --     [MAT_GRASS] = true,
-    --     [MAT_DIRT] = true,
-    --     [MAT_SAND] = true,
-    -- }
-    if self.DebrisSounds and trace.Hit then
-        self:EmitSound(self.DebrisSounds[math.random(1,#self.DebrisSounds)], 85, 100, 1, CHAN_AUTO)
+        -- local debrisMats = {
+        --     [MAT_GRASS] = true,
+        --     [MAT_DIRT] = true,
+        --     [MAT_SAND] = true,
+        -- }
+        if self.DebrisSounds then
+            self:EmitSound(self.DebrisSounds[math.random(1,#self.DebrisSounds)], 85, 100, 1, CHAN_AUTO)
+        end
     end
 
     self:Remove()
