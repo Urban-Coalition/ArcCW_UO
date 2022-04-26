@@ -102,7 +102,15 @@ function ENT:Detonate()
             self:EmitSound("weapons/underwater_explode3.wav", 125, 100, 1, CHAN_AUTO)
         else
             effectdata:SetFlags(4)
-            util.Effect("Explosion", effectdata)
+            -- util.Effect("Explosion", effectdata)
+            
+            -- explosion_HE_m79_fas2
+            -- explosion_he_grenade_fas2
+            -- explosion_HE_claymore_fas2
+            -- explosion_grenade_fas2
+
+            ParticleEffect("explosion_grenade_fas2", self:GetPos(), Angle(-90, 0, 0))
+
             self:EmitSound(self.ExplosionSounds[math.random(1,#self.ExplosionSounds)], 125, 100, 1, CHAN_AUTO)
             --self:EmitSound("phx/kaboom.wav", 125, 100, 1, CHAN_AUTO) -- Temporary
         end
