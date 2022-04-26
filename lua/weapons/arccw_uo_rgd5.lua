@@ -120,7 +120,11 @@ SWEP.Animations = {
     ["pre_throw_hold"] = {
         Source = "throw_idle",
         -- Time = 70 / 30,
-    },
+    },    
+    -- ["pre_throw_hold_alt"] = {
+    --     Source = "lowthrow_idle",
+    --     -- Time = 70 / 30,
+    -- },
     ["pre_throw_hold_cook"] = {
         Source = "throw2_idle",
         Time = 2.6,
