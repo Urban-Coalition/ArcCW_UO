@@ -57,7 +57,7 @@ SWEP.MuzzleVelocityAlt = 500 -- Throwing with alt-fire will use this velocity if
 
 SWEP.PullPinTime = .8
 SWEP.FuseTime = 3.4
-SWEP.CookPrimFire = false 
+SWEP.CookPrimFire = false
 SWEP.CookAltFire = false
 
 SWEP.ChamberSize = 0
@@ -120,11 +120,11 @@ SWEP.Animations = {
     ["pre_throw_hold"] = {
         Source = "throw_idle",
         -- Time = 70 / 30,
-    },    
-    -- ["pre_throw_hold_alt"] = {
-    --     Source = "lowthrow_idle",
-    --     -- Time = 70 / 30,
-    -- },
+    },
+    ["pre_throw_hold_alt"] = {
+        Source = "lowthrow_idle",
+        -- Time = 70 / 30,
+    },
     ["pre_throw_hold_cook"] = {
         Source = "throw2_idle",
         Time = 2.6,
@@ -148,7 +148,7 @@ SWEP.Animations = {
     },
 }
 
-SWEP.Hook_TranslateAnimation = function(wep,anim)
+SWEP.Hook_TranslateAnimation = function(wep, anim)
     if (anim == "pre_throw" or anim == "pre_throw_hold" or anim == "throw") and wep:GetCurrentFiremode() == wep.Firemodes[2] then
         return anim .. "_cook"
     end
