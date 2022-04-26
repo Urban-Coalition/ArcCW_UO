@@ -52,8 +52,8 @@ SWEP.Firemodes = {
     },
 }
 
-SWEP.MuzzleVelocity = 1600
-SWEP.MuzzleVelocityAlt = 500 -- Throwing with alt-fire will use this velocity if exists
+SWEP.MuzzleVelocity = 1200
+SWEP.MuzzleVelocityAlt = 600 -- Throwing with alt-fire will use this velocity if exists
 
 SWEP.PullPinTime = .8
 SWEP.FuseTime = 3.4
@@ -91,6 +91,7 @@ local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "clo
 SWEP.Animations = {
     ["draw"] = {
         Source = "draw",
+        Time = 28/40,
         SoundTable = {
             {s = rottle, t = 0},
         },
@@ -100,13 +101,14 @@ SWEP.Animations = {
     },
     ["ready"] = {
         Source = "ready",
+        Time = 63/40,
         SoundTable = {
             {s = rottle, t = 0},
         },
     },
     ["pre_throw"] = {
         Source = "throw_start",
-        -- Time = .75,
+        Time = 46/40,
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
@@ -115,7 +117,7 @@ SWEP.Animations = {
     },
     ["pre_throw_cook"] = {
         Source = "throw2_start",
-        -- Time = .85,
+        Time = 46/40,
         MinProgress = .95,
         SoundTable = {
             {s = rottle, t = 0.05},
@@ -125,7 +127,7 @@ SWEP.Animations = {
     },
     ["pre_throw_alt"] = {
         Source = "lowthrow_start",
-        -- Time = .75,
+        Time = 46/40,
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
@@ -134,7 +136,7 @@ SWEP.Animations = {
     },
     ["pre_throw_cook_alt"] = {
         Source = "lowthrow2_start",
-        -- Time = .75,
+        Time = 46/40,
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
@@ -143,11 +145,9 @@ SWEP.Animations = {
     },
     ["pre_throw_hold"] = {
         Source = "throw_idle",
-        -- Time = 70 / 30,
     },
     ["pre_throw_hold_alt"] = {
         Source = "lowthrow_idle",
-        -- Time = 70 / 30,
     },
     ["pre_throw_hold_cook"] = {
         Source = "throw2_idle",
@@ -159,7 +159,6 @@ SWEP.Animations = {
     },
     ["throw"] = {
         Source = "throw_end",
-        -- Time = .5,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
@@ -168,7 +167,6 @@ SWEP.Animations = {
     },
     ["throw_cook"] = {
         Source = "throw_end",
-        -- Time = .5,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15} -- temporary
