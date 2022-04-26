@@ -22,6 +22,9 @@ end
 SWEP.Slot = 4
 SWEP.CamAttachment = 1
 
+SWEP.CustomizePos = Vector(0, -5, 0)
+SWEP.CustomizeAng = Angle(15, 15, 15)
+
 SWEP.NotForNPCs = true
 
 SWEP.UseHands = true
@@ -53,7 +56,7 @@ SWEP.Firemodes = {
 }
 
 SWEP.MuzzleVelocity = 1200
-SWEP.MuzzleVelocityAlt = 600 -- Throwing with alt-fire will use this velocity if exists
+SWEP.MuzzleVelocityAlt = 700 -- Throwing with alt-fire will use this velocity if exists
 
 SWEP.PullPinTime = .8
 SWEP.FuseTime = 3.4
