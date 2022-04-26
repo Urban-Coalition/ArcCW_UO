@@ -22,6 +22,9 @@ end
 SWEP.Slot = 4
 SWEP.CamAttachment = 1
 
+SWEP.CustomizePos = Vector(0, -5, 0)
+SWEP.CustomizeAng = Angle(15, 15, 15)
+
 SWEP.NotForNPCs = true
 
 SWEP.UseHands = true
@@ -93,30 +96,32 @@ local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "clo
 SWEP.Animations = {
     ["draw"] = {
         Source = "draw",
+        Time = 28/40,
         SoundTable = {
             {s = rottle, t = 0},
-        }
+        },
     },
     ["idle"] = {
         Source = "idle",
     },
     ["ready"] = {
         Source = "ready",
+        Time = 63/40,
         SoundTable = {
             {s = rottle, t = 0},
-        }
+        },
     },
 
     -- Overhand
 
     ["pre_throw"] = {
         Source = "throw_start",
-        -- Time = .75,
+        Time = 46/40,
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
             {s = path .. "pinpull.wav", t = 0.4},
-        }
+        },
     },
     ["pre_throw_hold"] = {
         Source = "throw_idle",
@@ -136,7 +141,7 @@ SWEP.Animations = {
 
     ["pre_throw_cook"] = {
         Source = "throw2_start",
-        -- Time = .85,
+        Time = 46/40,
         MinProgress = .95,
         SoundTable = {
             {s = rottle, t = 0.05},
@@ -170,7 +175,6 @@ SWEP.Animations = {
     },
     ["pre_throw_hold_alt"] = {
         Source = "lowthrow_idle",
-        -- Time = 70 / 30,
     },
     ["throw_alt"] = {
         Source = "lowthrow_end",
@@ -179,7 +183,7 @@ SWEP.Animations = {
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
             {s = path .. "spooneject.wav", t = 0.2}, -- temporary
-        }
+        },
     },
 
     -- Underhand, cooked
