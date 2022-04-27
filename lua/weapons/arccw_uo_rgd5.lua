@@ -56,7 +56,7 @@ SWEP.Firemodes = {
 }
 
 SWEP.MuzzleVelocity = 1500
-SWEP.MuzzleVelocityAlt = 600 -- Throwing with alt-fire will use this velocity if exists
+SWEP.MuzzleVelocityAlt = 700 -- Throwing with alt-fire will use this velocity if exists
 
 SWEP.PullPinTime = .8
 SWEP.FuseTime = 3.4
@@ -116,7 +116,7 @@ SWEP.Animations = {
 
     ["pre_throw"] = {
         Source = "throw_start",
-        Time = 46/40,
+        Time = 1,
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
@@ -129,7 +129,7 @@ SWEP.Animations = {
     },
     ["throw"] = {
         Source = "throw_end",
-        -- Time = .5,
+        Time = 1,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
@@ -141,7 +141,7 @@ SWEP.Animations = {
 
     ["pre_throw_cook"] = {
         Source = "throw2_start",
-        Time = 46/40,
+        Time = 1,
         MinProgress = .95,
         SoundTable = {
             {s = rottle, t = 0.05},
@@ -155,7 +155,7 @@ SWEP.Animations = {
     },
     ["throw_cook"] = {
         Source = "throw_end",
-        -- Time = .5,
+        Time = 1,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15} -- temporary
@@ -166,7 +166,7 @@ SWEP.Animations = {
 
     ["pre_throw_alt"] = {
         Source = "lowthrow_start",
-        -- Time = .75,
+        Time = 1,
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
@@ -178,7 +178,7 @@ SWEP.Animations = {
     },
     ["throw_alt"] = {
         Source = "lowthrow_end",
-        -- Time = .5,
+        Time = 1,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
@@ -190,7 +190,7 @@ SWEP.Animations = {
 
     ["pre_throw_alt_cook"] = {
         Source = "lowthrow2_start",
-        -- Time = .75,
+        Time = 1,
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
@@ -205,7 +205,7 @@ SWEP.Animations = {
     },
     ["throw_alt_cook"] = {
         Source = "lowthrow_end",
-        -- Time = .5,
+        Time = 1,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
