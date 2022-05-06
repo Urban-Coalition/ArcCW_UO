@@ -2,6 +2,7 @@ SWEP.Base = "arccw_base_nade"
 
 SWEP.Spawnable = true -- this obviously has to be set to true
 SWEP.Category = "ArcCW - Urban Coalition" -- edit this if you like
+SWEP.UC_CategoryPack = "6Urban Ordnance"
 SWEP.AdminOnly = false
 
 SWEP.PrintName = "Heavy Frag Grenade"
