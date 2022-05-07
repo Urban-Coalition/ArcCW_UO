@@ -37,17 +37,24 @@ ENT.GrenadeDir = Vector(0,0,-1)
 
 if SERVER then
     function ENT:Initialize()
-        local pb_vert = 1
-        local pb_hor = 1
+        -- local pb_vert = 1
+        -- local pb_hor = 1
         self:SetModel(self.Model)
-        self:PhysicsInitBox(Vector(-pb_vert, -pb_hor, -pb_hor), Vector(pb_vert, pb_hor, pb_hor))
+        -- self:PhysicsInitBox(Vector(-pb_vert, -pb_hor, -pb_hor), Vector(pb_vert, pb_hor, pb_hor))
+        -- self:PhysicsInitSphere(2, "grenade")
+
+        self:PhysicsInit(SOLID_VPHYSICS)
+        self:SetMoveType(MOVETYPE_VPHYSICS)
+        self:SetSolid(SOLID_VPHYSICS)
+
         local phys = self:GetPhysicsObject()
 
-        if phys:IsValid() then
+        if IsValid(phys) then
+            phys:SetMaterial("grenade")
             phys:Wake()
-            phys:SetDragCoefficient(self.DragCoefficient)
-            phys:SetBuoyancyRatio(0.1)
-            phys:SetMass(.3)
+            -- phys:SetDragCoefficient(0.1)
+            -- phys:SetBuoyancyRatio(0.1)
+            -- phys:SetMass(0.3)
         end
 
         self.SpawnTime = CurTime()
