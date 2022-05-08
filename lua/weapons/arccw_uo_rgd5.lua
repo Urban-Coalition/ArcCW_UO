@@ -5,7 +5,7 @@ SWEP.Category = "ArcCW - Urban Coalition" -- edit this if you like
 SWEP.UC_CategoryPack = "6Urban Ordnance"
 SWEP.AdminOnly = false
 
-SWEP.PrintName = "Light Frag Grenade"
+SWEP.PrintName = "RD95/F"
 SWEP.TrueName = "RGD-5"
 SWEP.Trivia_Class = "Fragmentation Grenade"
 SWEP.Trivia_Desc = [[Cheap Cold War era, TNT-based anti-personnel grenade. Saturates its surroundings with shrapnel with a short fuse and a narrow lethal radius.

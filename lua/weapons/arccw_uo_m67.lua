@@ -5,7 +5,7 @@ SWEP.Category = "ArcCW - Urban Coalition" -- edit this if you like
 SWEP.UC_CategoryPack = "6Urban Ordnance"
 SWEP.AdminOnly = false
 
-SWEP.PrintName = "Heavy Frag Grenade"
+SWEP.PrintName = "AP-F/67"
 SWEP.TrueName = "M67"
 SWEP.Trivia_Class = "Fragmentation Grenade"
 SWEP.Trivia_Desc = [[The US Army's grenade of choice. Its baseball-shaped form is designed to aid conventional throwing. A bit heavy and slow to detonate, but has very potent fragmentation.
