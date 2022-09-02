@@ -81,9 +81,9 @@ SWEP.HolsterAng = Angle(-10, 0, 0)
 
 SWEP.IronSightStruct = false
 
-SWEP.MeleeSwingSound = "weapons/arccw/m249/m249_draw.wav"
-SWEP.MeleeHitSound = "weapons/arccw/knife/knife_hitwall1.wav"
-SWEP.MeleeHitNPCSound = "physics/body/body_medium_break2.wav"
+--SWEP.MeleeSwingSound = "weapons/arccw/m249/m249_draw.wav"
+--SWEP.MeleeHitSound = "weapons/arccw/knife/knife_hitwall1.wav"
+--SWEP.MeleeHitNPCSound = "physics/body/body_medium_break2.wav"
 
 SWEP.ShootWhileSprint = true
 
@@ -110,6 +110,7 @@ SWEP.Animations = {
         Time = 63/40,
         SoundTable = {
             {s = rottle, t = 0},
+            {s = common .. "revolver_trigger-02.ogg", t = .7}
         },
     },
 
