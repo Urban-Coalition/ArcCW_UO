@@ -93,6 +93,8 @@ SWEP.SpeedMult = 1
 local path = "arccw_uo/common/"
 local common = "arccw_uc/common/"
 local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}
+local pop = {path .. "fuse-pop-01.ogg", path .. "fuse-pop-02.ogg", path .. "fuse-pop-03.ogg", path .. "fuse-pop-04.ogg", path .. "fuse-pop-05.ogg", path .. "fuse-pop-06.ogg", path .. "fuse-pop-07.ogg", path .. "fuse-pop-08.ogg", path .. "fuse-pop-09.ogg", path .. "fuse-pop-10.ogg"}
+local popheld = {path .. "fuse-pop-held-01.ogg", path .. "fuse-pop-held-02.ogg", path .. "fuse-pop-held-03.ogg", path .. "fuse-pop-held-04.ogg", path .. "fuse-pop-held-05.ogg", path .. "fuse-pop-held-06.ogg", path .. "fuse-pop-held-07.ogg", path .. "fuse-pop-held-08.ogg", path .. "fuse-pop-held-09.ogg", path .. "fuse-pop-held-10.ogg"}
 
 SWEP.Animations = {
     ["draw"] = {
@@ -134,8 +136,9 @@ SWEP.Animations = {
         Time = 1,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
-            {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
-            {s = path .. "spooneject.wav", t = 0.2}, -- temporary
+            {s = "weapons/arccw/melee_lift.wav", t = 0}, -- temporary
+            {s = path .. "spooneject.wav", t = 0.1},
+            {s = pop, t = 0.15, v = 0.75},
         }
     },
 
@@ -148,7 +151,8 @@ SWEP.Animations = {
         SoundTable = {
             {s = rottle, t = 0.05},
             {s = path .. "pinpull.wav", t = 0.4},
-            {s = path .. "spooneject.wav", t = 0.8},
+            {s = path .. "spooneject.wav", t = 0.6},
+            {s = popheld, t = 0.6},
         },
     },
     ["pre_throw_hold_cook"] = {
@@ -183,8 +187,9 @@ SWEP.Animations = {
         Time = 1,
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
-            {s = "weapons/arccw/melee_lift.wav", t = 0.15}, -- temporary
-            {s = path .. "spooneject.wav", t = 0.2}, -- temporary
+            {s = "weapons/arccw/melee_lift.wav", t = 0}, -- temporary
+            {s = path .. "spooneject.wav", t = 0.1},
+            {s = pop, t = 0.15, v = 0.75},
         },
     },
 
@@ -197,7 +202,8 @@ SWEP.Animations = {
         SoundTable = {
             {s = rottle, t = 0.05},
             {s = path .. "pinpull.wav", t = 0.4},
-            {s = path .. "spooneject.wav", t = 0.8},
+            {s = path .. "spooneject.wav", t = 0.6},
+            {s = popheld, t = 0.6},
         },
     },
     ["pre_throw_hold_alt_cook"] = {
