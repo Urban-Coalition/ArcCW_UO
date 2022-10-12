@@ -69,7 +69,7 @@ SWEP.WindupTime = 1.5 -- Time to reach max velocity (does not apply for altfire)
 SWEP.WindupMinimum = 0.25 -- Velocity fraction if released without windup
 
 SWEP.HoldtypeHolstered = "normal"
-SWEP.HoldtypeActive = "grenade"
+SWEP.HoldtypeActive = "slam"
 
 SWEP.Primary.ClipSize = 1
 SWEP.Primary.Ammo = "grenade"
