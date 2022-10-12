@@ -69,7 +69,7 @@ SWEP.WindupTime = 1.5 -- Time to reach max velocity (does not apply for altfire)
 SWEP.WindupMinimum = 0.25 -- Velocity fraction if released without windup
 
 SWEP.HoldtypeHolstered = "normal"
-SWEP.HoldtypeActive = "slam"
+SWEP.HoldtypeActive = "grenade"
 
 SWEP.Primary.ClipSize = 1
 SWEP.Primary.Ammo = "grenade"
@@ -86,6 +86,12 @@ SWEP.IronSightStruct = false
 --SWEP.MeleeHitNPCSound = "physics/body/body_medium_break2.wav"
 
 SWEP.ShootWhileSprint = true
+SWEP.WorldModelOffset = {
+    pos        =    Vector(-8, 8, -13),
+    ang        =    Angle(35, 9, 180),
+    bone    =    "ValveBiped.Bip01_R_Hand",
+    scale = 1
+}
 
 SWEP.SpeedMult = 1
 
