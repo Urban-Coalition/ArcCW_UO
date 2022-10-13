@@ -87,6 +87,12 @@ SWEP.IronSightStruct = false
 --SWEP.MeleeHitNPCSound = "physics/body/body_medium_break2.wav"
 
 SWEP.ShootWhileSprint = true
+SWEP.WorldModelOffset = {
+    pos        =    Vector(-8, 8, -13),
+    ang        =    Angle(35, 9, 180),
+    bone    =    "ValveBiped.Bip01_R_Hand",
+    scale = 1
+}
 
 SWEP.SpeedMult = 1
 
