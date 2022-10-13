@@ -39,7 +39,8 @@ SWEP.Singleton = false -- for grenades, means that weapons ARE ammo; hold one, u
 
 SWEP.ShootEntity = "arccw_uo_nade_rgd5" -- See the entity's code for damage info
 
-SWEP.NotForNPCs = true
+SWEP.NPCWeaponType = "weapon_frag"
+--SWEP.NotForNPCs = true
 
 SWEP.Firemodes = {
     {

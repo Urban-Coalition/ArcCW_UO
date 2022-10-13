@@ -25,6 +25,7 @@ ENT.ImpactFuse = false
 local path = "arccw_uc/common/"
 local path1 = "arccw_uc/common/"
 ENT.ExplosionSounds = {path .. "explosion-close-01.ogg", path .. "explosion-close-02.ogg"}
+ENT.ExplosionSoundsIndoors = {path .. "explosion-close-int-01.ogg", path .. "explosion-close-int-02.ogg", path .. "explosion-close-int-03.ogg", path .. "explosion-close-int-04.ogg"}
 ENT.DebrisSounds = {path1 .. "debris-01.ogg", path1 .. "debris-02.ogg", path1 .. "debris-03.ogg", path1 .. "debris-04.ogg", path1 .. "debris-05.ogg"}
 ENT.ExplosionParticle = "explosion_grenade_fas2"
 
@@ -119,7 +120,8 @@ function ENT:Detonate()
 
             ParticleEffect(self.ExplosionParticle or "explosion_grenade_fas2", self:GetPos(), Angle(-90, 0, 0))
 
-            self:EmitSound(self.ExplosionSounds[math.random(1,#self.ExplosionSounds)], 125, 100, 1, CHAN_AUTO)
+            -- self:EmitSound(self.ExplosionSounds[math.random(1,#self.ExplosionSounds)], 125, 100, 1, CHAN_AUTO)
+            ArcCW.UO.InnyOuty(self)
             --self:EmitSound("phx/kaboom.wav", 125, 100, 1, CHAN_AUTO) -- Temporary
         end
         util.ScreenShake(self:GetPos(),25,4,.75,self.GrenadeRadius * 4)
@@ -129,7 +131,7 @@ function ENT:Detonate()
 
     local trace = util.TraceLine({
         start = self:GetPos(),
-        endpos = self:GetPos() + Vector(0,0,-15),
+        endpos = self:GetPos() + Vector(0,0,-45),
         mask = MASK_SOLID_BRUSHONLY
     })
 
@@ -139,7 +141,7 @@ function ENT:Detonate()
                 Attacker = attacker,
                 Damage = 0,
                 Tracer = 0,
-                Distance = 15,
+                Distance = 30,
                 Dir = self.GrenadeDir or self:GetVelocity():GetNormalized(),
                 Src = self:GetPos(),
                 Callback = function(att, tr, dmg)
