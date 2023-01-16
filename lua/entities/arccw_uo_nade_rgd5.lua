@@ -8,7 +8,7 @@ function ENT:PostDetonation()
     for i = 1,15 do
         local dir = Vector(math.sin(i * math.pi / 6),math.cos(i * math.pi / 6),0) + VectorRand() * Vector(0,0,.5)
 
-        debugoverlay.Line(self:GetPos(),self:GetPos() + dir * 256,4)
+        --debugoverlay.Line(self:GetPos(),self:GetPos() + dir * 256,4)
 
         self:FireBullets({
             Src = self:GetPos(),
