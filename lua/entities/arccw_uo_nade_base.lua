@@ -103,6 +103,10 @@ function ENT:DoDetonation()
     end
 end
 
+-- overwrite to keep the default explosion but still do special stuff; don't use if DoDetonation is overridden
+function ENT:PostDetonation()
+end
+
 function ENT:Detonate()
     if not self:IsValid() or self.BOOM then return end
     self.BOOM = true
@@ -160,6 +164,7 @@ function ENT:Detonate()
         end
     end
 
+    self:PostDetonation()
     self:Remove()
 end
 
