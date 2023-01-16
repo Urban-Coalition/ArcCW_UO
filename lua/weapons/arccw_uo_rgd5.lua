@@ -58,7 +58,7 @@ SWEP.Firemodes = {
 }
 
 SWEP.MuzzleVelocity = 1500
-SWEP.MuzzleVelocityAlt = 700 -- Throwing with alt-fire will use this velocity if exists
+SWEP.MuzzleVelocityAlt = 450 -- Throwing with alt-fire will use this velocity if exists
 
 SWEP.PullPinTime = .8
 SWEP.FuseTime = 3.4
