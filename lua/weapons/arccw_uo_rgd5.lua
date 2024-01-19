@@ -131,7 +131,7 @@ SWEP.Animations = {
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
-            {s = path .. "pinpull.wav", t = 0.4},
+            {s = path .. "pinpull.ogg", t = 0.4},
         },
     },
     ["pre_throw_hold"] = {
@@ -144,7 +144,7 @@ SWEP.Animations = {
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0}, -- temporary
-            {s = path .. "spooneject.wav", t = 0.1},
+            {s = path .. "spooneject.ogg", t = 0.1},
             {s = pop, t = 0.15, v = 0.75},
         }
     },
@@ -157,8 +157,8 @@ SWEP.Animations = {
         MinProgress = .95,
         SoundTable = {
             {s = rottle, t = 0.05},
-            {s = path .. "pinpull.wav", t = 0.4},
-            {s = path .. "spooneject.wav", t = 0.6},
+            {s = path .. "pinpull.ogg", t = 0.4},
+            {s = path .. "spooneject.ogg", t = 0.6},
             {s = popheld, t = 0.6},
         },
     },
@@ -183,7 +183,7 @@ SWEP.Animations = {
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
-            {s = path .. "pinpull.wav", t = 0.4},
+            {s = path .. "pinpull.ogg", t = 0.4},
         }
     },
     ["pre_throw_hold_alt"] = {
@@ -195,7 +195,7 @@ SWEP.Animations = {
         TPAnim = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE,
         SoundTable = {
             {s = "weapons/arccw/melee_lift.wav", t = 0}, -- temporary
-            {s = path .. "spooneject.wav", t = 0.1},
+            {s = path .. "spooneject.ogg", t = 0.1},
             {s = pop, t = 0.15, v = 0.75},
         },
     },
@@ -208,8 +208,8 @@ SWEP.Animations = {
         MinProgress = .8,
         SoundTable = {
             {s = rottle, t = 0.05},
-            {s = path .. "pinpull.wav", t = 0.4},
-            {s = path .. "spooneject.wav", t = 0.6},
+            {s = path .. "pinpull.ogg", t = 0.4},
+            {s = path .. "spooneject.ogg", t = 0.6},
             {s = popheld, t = 0.6},
         },
     },
